@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "rjiffy"
   s.version     = Rjiffy::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Frank Mueller"]
+  s.email       = ["frank@heidjer.info"]
   s.homepage    = ""
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
@@ -18,4 +18,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_dependency('httparty', '>= 0.7.7')
+
+  s.add_development_dependency('rspec', '>= 2.6.0')
 end

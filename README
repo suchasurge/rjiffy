@@ -1,0 +1,13 @@
+### Description
+#
+#
+# Find all boxes
+api = Rjiffy::Connection.new(<token>)
+boxes = api.boxes
+
+# Find one box
+box = api.find(ID)
+box == Object with attributes for the box infos
+
+# Delete a box
+box.delete
