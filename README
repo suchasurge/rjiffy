@@ -11,3 +11,12 @@ box == Object with attributes for the box infos
 
 # Delete a box
 box.delete
+
+
+# TODO
+- Handle Errors and Messages from the api response
+  ( Log messages when no error, i.e. thaw a box )
+  ( Raise Exeption with message when error, i.e. no token exist, but the
+    response looks the same when no box with id X found. Only the message text
+    itself is different, the type for both is 'error'
+  )
