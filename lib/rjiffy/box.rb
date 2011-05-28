@@ -1,5 +1,5 @@
 module Rjiffy
-  class Box < Connection
+  class Box
     def initialize(hash)
       hash.each do |k,v|
         self.instance_variable_set("@#{k}", v)  ## create and initialize an instance variable for this key/value pair
@@ -14,12 +14,12 @@ module Rjiffy
 
     class << self
       def all
-        response = self.get("/jiffyBoxes", :format => :json)
-        response["result"]
+        response =  Rjiffy::Configuration.base_uri["/jiffyBoxes"].get.deserialize
+        jiffyboxes = response["result"].collect {|box| self.new(box[1])}
       end
 
       def find(id)
-        response = self.class.get("/jiffyBoxes/#{id}", :format => :json)
+        response = Rjiffy::Configuration.base_ur["/jiffyBoxes/#{id}"].get.deserialize
         self.new(response["result"])
       end
     end

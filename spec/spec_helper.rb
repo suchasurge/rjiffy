@@ -11,7 +11,7 @@ def successfull_requested_box
 end
 
 def successfull_requested_box_list
-  {}
+  [Rjiffy::Box.new(successfull_requested_box)]
 end
 
 def error_response
