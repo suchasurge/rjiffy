@@ -1,4 +1,5 @@
 module Rjiffy
+  require 'wrest'
   require 'rjiffy/configuration'
   require 'rjiffy/box'
 end
