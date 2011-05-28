@@ -1,5 +1,5 @@
 module Rjiffy
-  require 'rjiffy/connection'
+  require 'rjiffy/configuration'
   require 'rjiffy/box'
 end
 
