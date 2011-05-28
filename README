@@ -1,15 +1,20 @@
 ### Description
 #
-#
+
+# Configuration
+Rjiffy::Configuration.configure do |conf|
+  conf.token = "somevalidtoken"
+end
+
 # Find all boxes
-api = Rjiffy::Connection.new(<token>)
-boxes = api.boxes
+boxes = Rjiffy::Box.all
 
 # Find one box
 box = api.find(ID)
 box == Object with attributes for the box infos
 
 # Delete a box
+# this is not implemented yet
 box.delete
 
 
