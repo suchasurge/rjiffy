@@ -12,17 +12,5 @@ module Rjiffy
       # TODO
     end
 
-    class << self
-      def all
-        response =  Rjiffy::Configuration.base_uri["/jiffyBoxes"].get.deserialize
-        jiffyboxes = response["result"].collect {|box| self.new(box[1])}
-      end
-
-      def find(id)
-        response = Rjiffy::Configuration.base_ur["/jiffyBoxes/#{id}"].get.deserialize
-        self.new(response["result"])
-      end
-    end
-
   end
 end

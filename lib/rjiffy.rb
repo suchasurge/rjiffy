@@ -2,6 +2,19 @@ module Rjiffy
   require 'wrest'
   require 'rjiffy/configuration'
   require 'rjiffy/box'
+
+  class << self
+    def all
+      response =  Rjiffy::Configuration.base_uri["/jiffyBoxes"].get.deserialize
+      jiffyboxes = response["result"].collect {|box| Box.new(box[1])}
+    end
+
+    def find(id)
+      response = Rjiffy::Configuration.base_uri["/jiffyBoxes/#{id}"].get.deserialize
+      Box.new(response["result"])
+    end
+  end
+
 end
 
 class ::Hash
