@@ -15,5 +15,5 @@ def successfull_requested_box_list
 end
 
 def error_response
-  [{"type"=>"error", "message"=>"Some error message"}]
+  {"messages"=>[{"type"=>"error", "message"=>"Der von Ihnen uebergebene API-Token ist ungueltig."}], "result"=>false}
 end

@@ -1,12 +1,14 @@
 module Rjiffy
   require 'wrest'
-  require 'rjiffy/configuration'
-  require 'rjiffy/box'
 
   class << self
     def all
       response =  Rjiffy::Configuration.base_uri["/jiffyBoxes"].get.deserialize
-      jiffyboxes = response["result"].collect {|box| Box.new(box[1])}
+      unless response["result"] == false
+        jiffyboxes = response["result"].collect {|box| Box.new(box[1])}
+      else
+        raise ApiResponseError, response["messages"][0]["message"]
+      end
     end
 
     def find(id)
@@ -14,6 +16,10 @@ module Rjiffy
       Box.new(response["result"])
     end
   end
+
+  require 'rjiffy/configuration'
+  require 'rjiffy/box'
+  require 'rjiffy/exceptions'
 
 end
 
