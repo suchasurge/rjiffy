@@ -14,3 +14,7 @@
 ## Delete a box
     box.delete
   This triggers the delete process and sets the box status to "DELETING"
+
+## Todo
+* Tweak Readme
+* Implement all stuff we can do with the jiffybox API
