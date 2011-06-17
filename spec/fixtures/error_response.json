@@ -1,0 +1,9 @@
+{
+    "messages": [
+        {
+            "type": "error",
+            "message": "Der von Ihnen uebergebene API-Token ist ungueltig."
+        }
+    ],
+    "result": false
+}
