@@ -16,5 +16,6 @@
   This triggers the delete process and sets the box status to "DELETING"
 
 ## Todo
+* Improve Error Handling
 * Tweak Readme
 * Implement all stuff we can do with the jiffybox API
