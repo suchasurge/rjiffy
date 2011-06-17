@@ -4,17 +4,9 @@ require 'fakeweb'
 
 require "rjiffy"
 
-# TODO
-# Think about fixtures and create some that make really sense.
-#
-def successfull_requested_box
-  {"id"=>12345,"name"=>"DeathStar"}
-end
 
-def successfull_requested_box_list
-  [Rjiffy::Box.new(successfull_requested_box)]
-end
-
-def error_response
-  {"messages"=>[{"type"=>"error", "message"=>"Der von Ihnen uebergebene API-Token ist ungueltig."}], "result"=>false}
+def fixture_file(filename)
+  return '' if filename == ''
+  file_path = File.expand_path(File.dirname(__FILE__) + '/../spec/fixtures/' + filename)
+  File.read(file_path)
 end
