@@ -13,4 +13,4 @@
 
 ## Delete a box
     box.delete
-  This schedules the delete process and sets the box status to "DELETING"
+  This triggers the delete process and sets the box status to "DELETING"
