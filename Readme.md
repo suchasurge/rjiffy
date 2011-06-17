@@ -6,7 +6,7 @@
     end
 
 ## Find all boxes
-    boxes = Rjiffy::Box.all
+    boxes = Rjiffy.all
 
 ## Find one box
-    box = api.find(ID)
+    box = Rjiffy.find(ID)
