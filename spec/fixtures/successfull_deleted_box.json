@@ -1,0 +1,18 @@
+{
+    "messages": [],
+    "result": {
+        "id": 12345,
+        "name": "Test",
+        "ips": {
+            "public": ["188.93.14.176"],
+            "private": ["10.93.14.175"]
+        },
+        "status": "DELETING",
+        "created": 1234567890,
+        "recoverymodeActive": false,
+        "manualBackupRunning": false,
+        "isBeingCopied": false,
+        "running": false,
+        "host": "vmhost-testsys-2-2-9-1"
+    }
+}
