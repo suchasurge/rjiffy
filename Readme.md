@@ -10,4 +10,3 @@
 
 ## Find one box
     box = api.find(ID)
-box == Object with attributes for the box infos
