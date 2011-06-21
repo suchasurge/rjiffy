@@ -9,12 +9,8 @@ module Rjiffy
     end
 
     def delete
-      response = Rjiffy::Configuration.base_uri["/jiffyBoxes/#{id}"].delete.deserialize
-      unless response["result"] == false
-        self.status = response["result"]["status"]
-      else
-        raise ApiResponseError, response["messages"][0]["message"]
-      end
+      response = Configuration.base_uri["/jiffyBoxes/#{id}"].delete.deserialize
+      self.status = Result.new(response).data.status
     end
 
   end

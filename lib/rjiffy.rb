@@ -3,24 +3,22 @@ module Rjiffy
 
   class << self
     def all
-      response =  Rjiffy::Configuration.base_uri["/jiffyBoxes"].get.deserialize
-      unless response["result"] == false
-        jiffyboxes = response["result"].collect {|box| Box.new(box[1])}
-      else
-        raise ApiResponseError, response["messages"][0]["message"]
-      end
+      response = Configuration.base_uri["/jiffyBoxes"].get.deserialize
+      result = Result.new(response)
+      result.data.collect {|box| Box.new(box[1])}
     end
 
     def find(id)
-      response = Rjiffy::Configuration.base_uri["/jiffyBoxes/#{id}"].get.deserialize
-      Box.new(response["result"])
+      response = Configuration.base_uri["/jiffyBoxes/#{id}"].get.deserialize
+      result = Result.new(response)
+      Box.new(result.data)
     end
   end
 
   require 'rjiffy/configuration'
+  require 'rjiffy/result'
   require 'rjiffy/box'
   require 'rjiffy/exceptions'
-
 end
 
 class ::Hash
