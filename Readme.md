@@ -13,7 +13,7 @@
 
 ## Delete a box
     box.delete
-  This triggers the delete process and sets the box status to "DELETING"
+  This triggers the delete process. On success the new status for the box is set to "DELETING"
 
 ## Todo
 * Improve Error Handling
