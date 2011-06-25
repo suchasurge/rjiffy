@@ -21,7 +21,7 @@ describe Rjiffy do
     end
   end
 
-  describe "handle errors", :handle_errors => true do
+  describe "Errors", :handle_errors => true do
     it "handles api errors in response" do
       FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("error_response.json"), :content_type => "application/json")
       expect { Rjiffy.all }.to raise_error(Rjiffy::ApiResponseError, "Der von Ihnen uebergebene API-Token ist ungueltig.")

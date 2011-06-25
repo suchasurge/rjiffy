@@ -2,7 +2,7 @@
 
 ## Configuration
     Rjiffy::Configuration.configure do |conf|
-      conf.token = "somevalidtoken"
+      conf.token = "somevalidapitoken"
     end
 
 ## Find all boxes
