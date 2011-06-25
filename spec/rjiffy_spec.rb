@@ -27,7 +27,7 @@ describe Rjiffy do
       expect { Rjiffy.all }.to raise_error(Rjiffy::ApiResponseError, "Der von Ihnen uebergebene API-Token ist ungueltig.")
     end
 
-    it "handles api 400/500 errors" do
+    it "handles api 400/500 response codes" do
       pending "waiting to implement"
     end
   end
