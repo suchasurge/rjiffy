@@ -1,3 +1,8 @@
+require 'simplecov'
+SimpleCov.start if ENV["COVERAGE"]
+# use with:
+# COVERAGE=true rspec .
+
 $:.push File.expand_path("../lib", __FILE__)
 require "wrest"
 require 'fakeweb'
