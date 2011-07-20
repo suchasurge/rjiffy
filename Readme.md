@@ -1,4 +1,5 @@
 ## Description
+Ruby Wrapper for jiffybox.de API
 
 ## Configuration
     Rjiffy::Configuration.configure do |conf|
