@@ -1,4 +1,4 @@
-![travis-ci build status](http://travis-ci.org/suchasurge/rjiffy.png)
+[![Build Status](https://secure.travis-ci.org/suchasurge/rjiffy.png)](http://travis-ci.org/suchasurge/rjiffy)
 
 ## Description
 Ruby Wrapper for jiffybox.de API
