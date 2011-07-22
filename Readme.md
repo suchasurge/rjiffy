@@ -1,3 +1,5 @@
+![travis-ci build status](http://travis-ci.org/suchasurge/rjiffy.png)
+
 ## Description
 Ruby Wrapper for jiffybox.de API
 
