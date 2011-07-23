@@ -13,11 +13,18 @@ module Rjiffy
       result = Result.new(response)
       Box.new(result.data)
     end
+
+    def backups
+      response = Configuration.base_uri["/backups"].get.deserialize
+      result = Result.new(response)
+      result.data.collect {|backup| Backup.new(backup[1])}
+    end
   end
 
   require 'rjiffy/configuration'
   require 'rjiffy/result'
   require 'rjiffy/box'
+  require 'rjiffy/backup'
   require 'rjiffy/exceptions'
 end
 
