@@ -27,16 +27,16 @@ describe Rjiffy do
       responded_box.name.should == "Test"
     end
 
-    it "list the backups for all available boxes" do
-      FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups"].to_s, :body => fixture_file("backup_list.json"), :content_type => "application/json")
-      available_backups = Rjiffy.backups
-      available_backups.class.should == Array
-      available_backups.count.should == 1
-      backup = available_backups.first
-      backup.daily.id.should == "1234567890abcdef1234567890abcdef"
-      backup.weekly.created == 1234567890
-      backup.biweekly.id == "34567890abcdef1234567890abcdef12"
-    end
+    #it "list the backups for all available boxes" do
+      #FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups"].to_s, :body => fixture_file("backup_list.json"), :content_type => "application/json")
+      #available_backups = Rjiffy.backups
+      #available_backups.class.should == Array
+      #available_backups.count.should == 1
+      #backup = available_backups.first
+      #backup.daily.id.should == "1234567890abcdef1234567890abcdef"
+      #backup.weekly.created == 1234567890
+      #backup.biweekly.id == "34567890abcdef1234567890abcdef12"
+    #end
   end
 
   describe "Errors", :handle_errors => true do
