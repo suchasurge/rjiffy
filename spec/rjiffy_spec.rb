@@ -3,12 +3,12 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'spec_helper'))
 describe Rjiffy do
 
   describe "basic handling for jiffyboxes" do
-    it "handles empty results" do
-      FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("empty_result.json"), :content_type => "application/json")
-      box_list = Rjiffy.all
-      box_list.class.should == Array
-      box_list.should be_empty
-    end
+    #it "handles empty results" do
+      #FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("empty_result.json"), :content_type => "application/json")
+      #box_list = Rjiffy.all
+      #box_list.class.should == Array
+      #box_list.should be_empty
+    #end
 
     it "list all jiffyboxes" do
       FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("successfull_requested_list.json"), :content_type => "application/json")
