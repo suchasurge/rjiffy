@@ -23,8 +23,8 @@ module Rjiffy
 
   require 'rjiffy/configuration'
   require 'rjiffy/result'
-  require 'rjiffy/box'
   require 'rjiffy/backup'
+  require 'rjiffy/box'
   require 'rjiffy/exceptions'
 end
 
