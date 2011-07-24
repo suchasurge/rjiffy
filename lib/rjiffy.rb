@@ -1,5 +1,6 @@
 module Rjiffy
   require 'wrest'
+  require 'hashr'
 
   class << self
     def all
