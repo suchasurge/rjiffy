@@ -11,6 +11,9 @@ Ruby Wrapper for jiffybox.de API
 ## Find all boxes
     boxes = Rjiffy.all
 
+## List all backups
+    backups = Rjiffy.backups
+
 ## Find one box
     box = Rjiffy.find(ID)
 
