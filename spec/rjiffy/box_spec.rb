@@ -17,7 +17,7 @@ describe Rjiffy::Box do
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups/#{@box.id}"].to_s, :body => fixture_file("backup_from_box.json"), :content_type => "application/json")
     backups = @box.backups
     backups.day.should == 1
-    backups.daily.created.instance_of?(Fixnum).should be_true
+    backups.daily.created.instance_of?(Fixnum).should == true
   end
 
 
