@@ -13,5 +13,12 @@ describe Rjiffy::Box do
     @box.status.should == "DELETING"
   end
 
+  it "list the backups for the box", :box_backups => true do
+    FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups/#{@box.id}"].to_s, :body => fixture_file("backup_from_box.json"), :content_type => "application/json")
+    backups = @box.backups
+    backups.day.should == 1
+    backups.daily.created.instance_of?(Fixnum).should be_true
+  end
+
 
 end

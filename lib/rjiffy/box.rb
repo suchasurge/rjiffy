@@ -5,5 +5,9 @@ module Rjiffy
       self.status = Result.new(response).data.status
     end
 
+    def backups
+      response = Configuration.base_uri["/backups/#{id}"].get.deserialize
+      Backup.new(Result.new(response).data)
+    end
   end
 end

@@ -1,0 +1,19 @@
+{
+  "messages": [],
+  "result": {
+    "daily": {
+      "id": "1234567890abcdef1234567890abcdef",
+      "created": 1234567890
+    },
+    "weekly": {
+      "id": "234567890abcdef1234567890abcdef1",
+      "created": 1234567890
+    },
+    "biweekly": {
+      "id": "34567890abcdef1234567890abcdef12",
+      "created": 1234567890
+    },
+    "day": 1,
+    "time": 1
+  }
+}
