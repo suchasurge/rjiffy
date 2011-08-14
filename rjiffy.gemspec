@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency('wrest', '~> 1.4.2')
   s.add_dependency('hashr', '~> 0.0.10')
+  s.add_dependency('jruby-openssl') if RUBY_PLATFORM == 'java'
 
   s.add_development_dependency('rspec', '~> 2.6.0')
   s.add_development_dependency('fakeweb', '~> 1.3.0')
