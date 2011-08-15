@@ -1,3 +1,7 @@
 rvm:
   - 1.9.2
+  - jruby
+  - 1.9.3
+  - ruby-head
+env: JRUBY_OPTS=--1.9
 script: "bundle exec rspec spec"
