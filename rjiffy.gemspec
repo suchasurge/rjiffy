@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('wrest', '~> 1.4.2')
-  s.add_dependency('hashr', '~> 0.0.11')
+  s.add_dependency('hashie', '~> 1.1.0')
   s.add_dependency('jruby-openssl') if RUBY_PLATFORM == 'java'
 
   s.add_development_dependency('rspec', '~> 2.6.0')

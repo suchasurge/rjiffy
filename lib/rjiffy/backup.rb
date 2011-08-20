@@ -1,4 +1,4 @@
 module Rjiffy
-  class Backup < Hashr
+  class Backup < Hashie::Mash
   end
 end

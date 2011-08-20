@@ -1,6 +1,6 @@
 module Rjiffy
   require 'wrest'
-  require 'hashr'
+  require 'hashie'
 
   class << self
     def all
@@ -27,12 +27,4 @@ module Rjiffy
   require 'rjiffy/backup'
   require 'rjiffy/box'
   require 'rjiffy/exceptions'
-end
-
-class ::Hash
-  def method_missing(name)
-    return self[name] if key? name
-    self.each { |k,v| return v if k.to_s.to_sym == name }
-    super.method_missing name
-  end
 end
