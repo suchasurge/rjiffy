@@ -6,3 +6,4 @@ pkg/*
 *.swp
 coverage/*
 .rvmrc
+*.rbc
