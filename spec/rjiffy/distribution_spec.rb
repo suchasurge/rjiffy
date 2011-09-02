@@ -8,8 +8,8 @@ describe Rjiffy::Distribution do
     distributions.count.should == 2
     last_distribution = distributions.last
     last_distribution.class.should == Rjiffy::Distribution
-    last_distribution.name.should == "CentOS 5.4 64-Bit"
-    last_distribution.id.should == "centos_5_4_64bit"
+    distributions.map(&:name).include?("CentOS 5.4 64-Bit").should == true
+    distributions.map(&:id).include?("centos_5_4_64bit").should == true
   end
 
   it "find distribution by id" do

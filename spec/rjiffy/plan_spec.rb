@@ -21,14 +21,12 @@ describe Rjiffy::Plan do
 
     it "by id" do
       plan = Rjiffy::Plan.find(1)
-      puts plan.inspect
       plan.id.should == 1
       plan.name.should == "CloudLevel 2"
     end
 
     it "by name" do
       plan = Rjiffy::Plan.find("CloudLevel 2")
-      puts plan.inspect
       plan.id.should == 1
       plan.name.should == "CloudLevel 2"
     end
