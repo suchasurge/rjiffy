@@ -10,7 +10,7 @@ module Rjiffy
       def find(id_or_name)
         escaped_id_or_name = URI.escape(id_or_name.to_s)
         response = Configuration.base_uri["/plans/#{escaped_id_or_name}"].get.deserialize
-        Plan.new(Result.new(response).data)
+        new(Result.new(response).data)
       end
     end
   end
