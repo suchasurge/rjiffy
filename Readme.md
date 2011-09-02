@@ -8,18 +8,32 @@ Ruby Wrapper for jiffybox.de API
       conf.token = "somevalidapitoken"
     end
 
-## Find all boxes
-    boxes = Rjiffy.all
-
 ## List all backups
     backups = Rjiffy.backups
 
+## Find all boxes
+    boxes = Rjiffy::Box.all
+
 ## Find one box
-    box = Rjiffy.find(ID)
+    box = Rjiffy::Box.find(ID)
 
 ## Delete a box
     box.delete
   This triggers the delete process. On success the new status for the box is set to "DELETING"
+
+## List all plans
+    Rjiffy::Plan.all
+
+## Find a specific plan
+    Rjiffy::Plan.find("CloudLevel 2")
+  or
+    Rjiffy::Plan.find(1)
+
+## List all distributions
+    Rjiffy::Distribution.all
+
+## Find a specific distribution
+    Rjiffy::Distribution.find("centos_5_4_64bit")
 
 ## Todo
 * Improve Error Handling
