@@ -3,18 +3,6 @@ module Rjiffy
   require 'hashie'
 
   class << self
-    def all
-      response = Configuration.base_uri["/jiffyBoxes"].get.deserialize
-      result = Result.new(response)
-      result.data.collect {|box| Box.new(box[1])}
-    end
-
-    def find(id)
-      response = Configuration.base_uri["/jiffyBoxes/#{id}"].get.deserialize
-      result = Result.new(response)
-      Box.new(result.data)
-    end
-
     def backups
       response = Configuration.base_uri["/backups"].get.deserialize
       result = Result.new(response)
