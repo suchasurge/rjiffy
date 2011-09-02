@@ -26,5 +26,6 @@ module Rjiffy
   require 'rjiffy/result'
   require 'rjiffy/backup'
   require 'rjiffy/box'
+  require 'rjiffy/plan'
   require 'rjiffy/exceptions'
 end

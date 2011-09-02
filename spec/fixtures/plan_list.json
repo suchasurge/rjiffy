@@ -1,0 +1,37 @@
+{
+  "messages": [],
+  "result": {
+    "6": {
+      "id":6,
+      "name":"CloudLevel 1",
+      "diskSizeInMB": 20480,
+      "ramInMB": 512,
+      "pricePerHour": 0.02,
+      "pricePerHourFrozen": 0.005
+    },
+    "1": {
+      "id": 1,
+      "name": "CloudLevel 2",
+      "diskSizeInMB": 40960,
+      "ramInMB": 1024,
+      "pricePerHour": 0.04,
+      "pricePerHourFrozen": 0.01
+    },
+    "2": {
+      "id": 2,
+      "name": "CloudLevel 3",
+      "diskSizeInMB": 81920,
+      "ramInMB": 2048,
+      "pricePerHour": 0.07,
+      "pricePerHourFrozen": 0.02
+    },
+    "3": {
+      "id": 3,
+      "name":" CloudLevel 4",
+      "diskSizeInMB": 122880,
+      "ramInMB": 4096,
+      "pricePerHour": 0.13,
+      "pricePerHourFrozen": 0.03
+    }
+  }
+}
