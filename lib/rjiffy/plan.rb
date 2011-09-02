@@ -4,7 +4,7 @@ module Rjiffy
       def all
         response = Configuration.base_uri["/plans"].get.deserialize
         result = Result.new(response)
-        result.data.collect {|plan| Plan.new(plan[1])}
+        result.data.collect {|plan| new(plan[1])}
       end
 
       def find(id_or_name)

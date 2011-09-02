@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Rjiffy::Plan do
   it "list all available plans" do
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/plans"].to_s, :body => fixture_file("plan_list.json"), :content_type => "application/json")
-    @plans = Rjiffy::Plan.all
-    @plans.count.should == 4
-    first_plan = @plans.first
+    plans = Rjiffy::Plan.all
+    plans.count.should == 4
+    first_plan = plans.first
     first_plan.class.should == Rjiffy::Plan
     first_plan.id.should == 6
     first_plan.name.should == "CloudLevel 1"
