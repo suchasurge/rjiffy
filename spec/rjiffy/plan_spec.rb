@@ -5,10 +5,9 @@ describe Rjiffy::Plan do
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/plans"].to_s, :body => fixture_file("plan_list.json"), :content_type => "application/json")
     plans = Rjiffy::Plan.all
     plans.count.should == 4
-    first_plan = plans.first
-    first_plan.class.should == Rjiffy::Plan
-    first_plan.id.should == 6
-    first_plan.name.should == "CloudLevel 1"
+    plans.first.class.should == Rjiffy::Plan
+    plans.map(&:id).include?(6).should == true
+    plans.map(&:name).include?("CloudLevel 1").should == true
   end
 
   context "finding plans" do

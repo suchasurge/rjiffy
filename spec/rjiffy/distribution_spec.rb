@@ -6,8 +6,7 @@ describe Rjiffy::Distribution do
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/distributions"].to_s, :body => fixture_file("distributions_list.json"), :content_type => "application/json")
     distributions = Rjiffy::Distribution.all
     distributions.count.should == 2
-    last_distribution = distributions.last
-    last_distribution.class.should == Rjiffy::Distribution
+    distributions.last.class.should == Rjiffy::Distribution
     distributions.map(&:name).include?("CentOS 5.4 64-Bit").should == true
     distributions.map(&:id).include?("centos_5_4_64bit").should == true
   end
