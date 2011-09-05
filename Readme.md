@@ -26,7 +26,8 @@ Ruby Wrapper for jiffybox.de API
 
 ## Find a specific plan
     Rjiffy::Plan.find("CloudLevel 2")
-  or
+or
+    
     Rjiffy::Plan.find(1)
 
 ## List all distributions
