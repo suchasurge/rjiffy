@@ -2,7 +2,12 @@ module Rjiffy
   class Result
     attr_accessor :data
     def initialize(response)
-      @data = Hashie::Mash.new(process_result(response))
+      data = process_result(response)
+      if data.is_a? Hash
+        @data = Hashie::Mash.new(data)
+      else
+        @data = data
+      end
     end
 
 
