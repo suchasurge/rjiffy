@@ -16,7 +16,8 @@ module Rjiffy
 
     def delete
       response = Configuration.base_uri["/jiffyBoxes/#{id}"].delete.deserialize
-      self.status = Result.new(response).data.status
+      self.status = "DELETING"
+      self
     end
 
     def backups
