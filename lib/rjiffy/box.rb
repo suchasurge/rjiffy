@@ -12,6 +12,12 @@ module Rjiffy
         result = Result.new(response)
         new(result.data)
       end
+
+      def create(params = {})
+        response = Configuration.base_uri["/jiffyBoxes"].post_form(params).deserialize
+        result = Result.new(response)
+        new(result.data)
+      end
     end
 
     def delete

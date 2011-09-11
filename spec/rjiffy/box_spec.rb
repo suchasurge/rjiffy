@@ -34,4 +34,11 @@ describe Rjiffy::Box do
     backups.day.should == 1
   end
 
+  it "creates a new jiffybox", :create_jiffybox => true do
+    FakeWeb.register_uri(:post, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("created_box.json"), :content_type => "application/json")
+    params = {:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"}
+    box = Rjiffy::Box.create(params)
+    box.status.should == "CREATING"
+  end
+
 end
