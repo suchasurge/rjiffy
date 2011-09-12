@@ -9,10 +9,10 @@ Ruby Wrapper for jiffybox.de API
     end
 
 ## List all backups
-    backups = Rjiffy.backups
+    Rjiffy.backups
 
 ## Find all boxes
-    boxes = Rjiffy::Box.all
+    Rjiffy::Box.all
 
 ## Find one box
     box = Rjiffy::Box.find(ID)
@@ -20,6 +20,9 @@ Ruby Wrapper for jiffybox.de API
 ## Delete a box
     box.delete
   This triggers the delete process. On success the new status for the box is set to "DELETING"
+  
+## Create a box
+    Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
 
 ## List all plans
     Rjiffy::Plan.all
