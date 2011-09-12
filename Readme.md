@@ -1,6 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/suchasurge/rjiffy.png)](http://travis-ci.org/suchasurge/rjiffy)
-
-## Description
+# Description [![Build Status](https://secure.travis-ci.org/suchasurge/rjiffy.png)](http://travis-ci.org/suchasurge/rjiffy)
 Ruby Wrapper for jiffybox.de API
 
 ## Configuration
