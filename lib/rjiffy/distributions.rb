@@ -12,7 +12,7 @@ module Rjiffy
       private
 
         def add_id_to_result(id, result)
-          result.id = id
+          result["id"] = id
           result
         end
 
