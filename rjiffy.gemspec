@@ -9,10 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Frank Mueller"]
   s.email       = ["frank@heidjer.info"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
-
-  s.rubyforge_project = "rjiffy"
+  s.summary     = "Rjiffy"
+  s.description = "Ruby Wrapper for the jiffybox.de API"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
