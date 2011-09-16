@@ -2,18 +2,23 @@ module Rjiffy
   class Request
     class << self
       def get_data(url)
-        response = Configuration.base_uri[url].get.deserialize
-        result = Result.new(response).data
+        process_response(Configuration.base_uri[url].get.deserialize)
       end
 
       def post_data(url, params)
-        response = Configuration.base_uri[url].post_form(params).deserialize
-        result = Result.new(response).data
+        process_response(Configuration.base_uri[url].post_form(params).deserialize)
       end
 
       def delete_data(url)
-        Configuration.base_uri[url].delete.deserialize
+        process_response(Configuration.base_uri[url].delete.deserialize)
       end
+
+      private
+
+        def process_response(response)
+          Result.new(response).data
+        end
+
     end
   end
 end
