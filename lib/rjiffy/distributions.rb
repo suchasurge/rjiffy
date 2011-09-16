@@ -2,15 +2,11 @@ module Rjiffy
   class Distribution < Hashie::Mash
     class << self
       def all
-        response = Configuration.base_uri["/distributions"].get.deserialize
-        result = Result.new(response)
-        result.data.collect {|distribution| new(add_id_to_result(distribution[0],distribution[1]))}
+        Request.get_data("/distributions").collect {|distribution| new(add_id_to_result(distribution[0],distribution[1]))}
       end
 
       def find(id)
-        response = Configuration.base_uri["/distributions/#{id}"].get.deserialize
-        result = Result.new(response)
-        new(add_id_to_result(id, result.data))
+        new(add_id_to_result(id, Request.get_data("/distributions/#{id}")))
       end
 
       private
