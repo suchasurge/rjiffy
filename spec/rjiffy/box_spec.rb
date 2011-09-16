@@ -5,6 +5,9 @@ describe Rjiffy::Box do
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("box_list.json"), :content_type => "application/json")
     @id = 12345
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@id}"].to_s, :body => fixture_file("box.json"), :content_type => "application/json")
+    FakeWeb.register_uri(:delete, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@id}"].to_s, :body => fixture_file("deleted_box.json"), :content_type => "application/json")
+    FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups/#{@id}"].to_s, :body => fixture_file("backup_from_box.json"), :content_type => "application/json")
+    FakeWeb.register_uri(:post, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("created_box.json"), :content_type => "application/json")
     @box = Rjiffy::Box.find(@id)
   end
 
@@ -23,22 +26,31 @@ describe Rjiffy::Box do
   end
 
   it "deletes a box" do
-    FakeWeb.register_uri(:delete, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@box.id}"].to_s, :body => fixture_file("deleted_box.json"), :content_type => "application/json")
     @box.delete
     @box.status.should == "DELETING"
   end
 
   it "list the backups for the box", :box_backups => true do
-    FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups/#{@box.id}"].to_s, :body => fixture_file("backup_from_box.json"), :content_type => "application/json")
     backups = @box.backups
     backups.day.should == 1
   end
 
   it "creates a new jiffybox", :create_jiffybox => true do
-    FakeWeb.register_uri(:post, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("created_box.json"), :content_type => "application/json")
     params = {:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"}
     box = Rjiffy::Box.create(params)
     box.status.should == "CREATING"
+  end
+
+  it "reloads the box to update data", :reload_jiffybox => true do
+    box = Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
+    box.status.should == "CREATING"
+    box.name.should == "Test"
+    id_from_created_box = box.id
+    created_at = box.created
+    box.reload
+    box.status.should == "READY"
+    box.created.should == created_at
+    box.id.should == id_from_created_box
   end
 
 end

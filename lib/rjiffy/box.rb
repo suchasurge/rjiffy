@@ -20,6 +20,12 @@ module Rjiffy
       end
     end
 
+    def reload
+      response = Configuration.base_uri["/jiffyBoxes/#{self.id}"].get.deserialize
+      result = Result.new(response)
+      merge!(result.data)
+    end
+
     def delete
       response = Configuration.base_uri["/jiffyBoxes/#{id}"].delete.deserialize
       self.status = "DELETING"
