@@ -15,10 +15,13 @@ Ruby Wrapper for jiffybox.de API
 ## Find one box
     box = Rjiffy::Box.find(ID)
 
+## Reload a box
+    box.reload
+
 ## Delete a box
     box.delete
   This triggers the delete process. On success the new status for the box is set to "DELETING"
-  
+
 ## Create a box
     Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
 
@@ -28,7 +31,7 @@ Ruby Wrapper for jiffybox.de API
 ## Find a specific plan
     Rjiffy::Plan.find("CloudLevel 2")
 or use an id
-    
+
     Rjiffy::Plan.find(1)
 
 ## List all distributions
