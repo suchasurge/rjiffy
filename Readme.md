@@ -25,6 +25,9 @@ Ruby Wrapper for jiffybox.de API
 ## Create a box
     Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
 
+## Start, shutdown, pullplug, freeze and thaw a box
+`box.start`, `box.shutdown`, `box.pullplug`, `box.freeze`, `box.thaw(PLANID)`
+
 ## List all plans
     Rjiffy::Plan.all
 
