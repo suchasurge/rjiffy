@@ -4,8 +4,8 @@ rvm:
   - 1.9.3
   - ree
   - ruby-head
-  - rbx
-  - rbx-2.0
+  #- rbx
+  #- rbx-2.0
   - jruby
 env: JRUBY_OPTS=--1.9
 script: "bundle exec rspec spec"
