@@ -13,6 +13,10 @@ module Rjiffy
         process_response(Configuration.base_uri[url].delete.deserialize)
       end
 
+      def put_data(url, params)
+        process_response(Configuration.base_uri[url].put(params).deserialize)
+      end
+
       private
 
         def process_response(response)

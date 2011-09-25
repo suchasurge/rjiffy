@@ -8,6 +8,7 @@ describe Rjiffy::Box do
     FakeWeb.register_uri(:delete, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@id}"].to_s, :body => fixture_file("deleted_box.json"), :content_type => "application/json")
     FakeWeb.register_uri(:get, Rjiffy::Configuration.base_uri["/backups/#{@id}"].to_s, :body => fixture_file("backup_from_box.json"), :content_type => "application/json")
     FakeWeb.register_uri(:post, Rjiffy::Configuration.base_uri["/jiffyBoxes"].to_s, :body => fixture_file("created_box.json"), :content_type => "application/json")
+    FakeWeb.register_uri(:put, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@id}"].to_s, :body => fixture_file("updated_box.json"), :content_type => "application/json")
     @box = Rjiffy::Box.find(@id)
   end
 
@@ -52,5 +53,22 @@ describe Rjiffy::Box do
     box.created.should == created_at
     box.id.should == id_from_created_box
   end
+
+  it "start, shutdown, pullplug and freeze the box", :box_status => true do
+    [:start, :shutdown, :pullplug, :freeze].each do |method|
+      box = Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
+      box.send(method)
+      box.status.should == "UPDATING"
+    end
+  end
+
+  it "thaw the box", :thaw_box => true do
+    FakeWeb.register_uri(:put, Rjiffy::Configuration.base_uri["/jiffyBoxes/#{@id}"].to_s, :body => fixture_file("freezed_box.json"), :content_type => "application/json")
+    box = Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
+    box.thaw(:planid => "2")
+    box.status.should == "FREEZING"
+    box.plan.id.should == 2
+  end
+
 
 end

@@ -27,5 +27,16 @@ module Rjiffy
     def backups
       Backup.new(Request.get_data("/backups/#{id}"))
     end
+
+    def thaw(planid)
+      merge!(Request.put_data("/jiffyBoxes/#{id}", "status=THAW&planid=#{planid}"))
+    end
+
+    [:start, :shutdown, :pullplug, :freeze].each do |method|
+      define_method(method) do
+        merge!(Request.put_data("/jiffyBoxes/#{id}", "status=#{method.to_s.upcase}"))
+      end
+    end
+
   end
 end
