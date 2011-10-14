@@ -15,6 +15,12 @@ Ruby Wrapper for jiffybox.de API
 ## Find one box
     box = Rjiffy::Box.find(ID)
 
+## List Backups for the box
+    box.backups
+
+## Create a recurring Backup for the box
+    box.create_recurring_backup({"dayid" => 1, "timeid" => 2})
+
 ## Create a box
     Rjiffy::Box.create({:name => "Test", :planid => "1", :distribution => "centos_5_6_32bit"})
 
