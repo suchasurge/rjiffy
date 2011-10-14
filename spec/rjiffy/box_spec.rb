@@ -70,5 +70,12 @@ describe Rjiffy::Box do
     box.plan.id.should == 2
   end
 
+  it "creates a recurring backup", :create_box_backup => true do
+    FakeWeb.register_uri(:post, Rjiffy::Configuration.base_uri["/backups/#{@id}"].to_s, :body => fixture_file("recurring_box_backup.json"), :content_type => "application/json")
+    backup = @box.create_recurring_backup({"dayid" => 1, "timeid" => 2})
+    backup.class.should == Rjiffy::Backup
+    backup.dayid.should == 1
+    backup.timeid.should == 2
+  end
 
 end

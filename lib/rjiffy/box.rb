@@ -28,6 +28,10 @@ module Rjiffy
       Backup.new(Request.get_data("/backups/#{id}"))
     end
 
+    def create_recurring_backup(date_time_id = {})
+      Backup.new(Request.post_data("/backups/#{id}", date_time_id))
+    end
+
     def thaw(planid)
       merge!(Request.put_data("/jiffyBoxes/#{id}", "status=THAW&planid=#{planid}"))
     end
