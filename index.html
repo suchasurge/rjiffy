@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Rjiffy : Ruby Wrapper for jiffybox.de API" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Rjiffy</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/suchasurge/rjiffy">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Rjiffy</h1>
+          <h2 id="project_tagline">Ruby Wrapper for jiffybox.de API</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/suchasurge/rjiffy/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/suchasurge/rjiffy/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Ruby Wrapper for jiffybox.de API</h1>
+
+<h2>Configuration</h2>
+
+<pre><code>Rjiffy::Configuration.configure do |conf|
+  conf.token = "somevalidapitoken"
+end
+</code></pre>
+
+<h2>List all backups</h2>
+
+<pre><code>Rjiffy.backups
+</code></pre>
+
+<h2>Find all boxes</h2>
+
+<pre><code>Rjiffy::Box.all
+</code></pre>
+
+<h2>Find one box</h2>
+
+<pre><code>box = Rjiffy::Box.find(ID)
+</code></pre>
+
+<h2>List Backups for the box</h2>
+
+<pre><code>box.backups
+</code></pre>
+
+<h2>Create a recurring Backup for the box</h2>
+
+<pre><code>box.create_recurring_backup({"dayid" =&gt; 1, "timeid" =&gt; 2})
+</code></pre>
+
+<h2>Create a box</h2>
+
+<pre><code>Rjiffy::Box.create({:name =&gt; "Test", 
+                    :planid =&gt; "1", 
+                    :distribution =&gt; "centos_5_6_32bit"})
+</code></pre>
+
+<h2>Start, shutdown, pullplug, freeze and thaw a box</h2>
+
+<p><code>box.start</code>, <code>box.shutdown</code>, <code>box.pullplug</code>, <code>box.freeze</code>, <code>box.thaw(PLANID)</code></p>
+
+<h2>Reload a box</h2>
+
+<pre><code>box.reload
+</code></pre>
+
+<h2>Delete a box</h2>
+
+<pre><code>box.delete
+</code></pre>
+
+<p>This triggers the delete process. On success the new status for the box is set to "DELETING"</p>
+
+<h2>List all plans</h2>
+
+<pre><code>Rjiffy::Plan.all
+</code></pre>
+
+<h2>Find a specific plan</h2>
+
+<pre><code>Rjiffy::Plan.find("CloudLevel 2")
+</code></pre>
+
+<p>or use an id</p>
+
+<pre><code>Rjiffy::Plan.find(1)
+</code></pre>
+
+<h2>List all distributions</h2>
+
+<pre><code>Rjiffy::Distribution.all
+</code></pre>
+
+<h2>Find a specific distribution</h2>
+
+<pre><code>Rjiffy::Distribution.find("centos_5_4_64bit")
+</code></pre>
+
+<h2>Travis CI</h2>
+
+<p><a href="http://travis-ci.org/suchasurge/rjiffy">http://travis-ci.org/suchasurge/rjiffy</a></p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Improve Error Handling</li>
+<li>Tweak Readme</li>
+<li>Implement all stuff we can do with the jiffybox API</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Rjiffy maintained by <a href="https://github.com/suchasurge">suchasurge</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31088006-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
