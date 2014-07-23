@@ -4,7 +4,7 @@ module Rjiffy
     API_VERSION = "v1.0"
 
     class << self
-      attr_accessor :token
+      attr_accessor :token, :loglevel
 
       def configure
         yield self
