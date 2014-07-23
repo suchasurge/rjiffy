@@ -1,7 +1,6 @@
 module Rjiffy
   class Request
     class << self
-      Wrest.logger.level = Configuration.loglevel || Logger::DEBUG
 
       def get_data(url)
         process_response(Configuration.base_uri[url].get.deserialize)

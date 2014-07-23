@@ -10,7 +10,7 @@ describe  Rjiffy::Configuration do
     end
     Rjiffy::Configuration.token.should == "mytoken"
     Rjiffy::Configuration.base_uri.should == "https://api.jiffybox.de/mytoken/v1.0".to_uri
-    Rjiffy::Configuration.loglevel.should == Logger::DEBUG
+    Wrest.logger.level.should == Logger::DEBUG
   end
 
 end
