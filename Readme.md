@@ -4,7 +4,10 @@ Ruby Wrapper for jiffybox.de API
 ## Configuration
     Rjiffy::Configuration.configure do |conf|
       conf.token = "somevalidapitoken"
+      conf.loglevel = Logger::INFO
     end
+
+Note `Logger::INFO` or higher will disable request logging. Default is `Logger::DEBUG`
 
 ## List all backups
     Rjiffy.backups
